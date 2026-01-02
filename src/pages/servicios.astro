@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ArmaTuWeb from "../components/ArmaTuWeb.jsx";
+
+const services = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#00C853]"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+    title: "Desarrollo Web y Software",
+    text: "Aplicaciones web plataformas digitales a medida, usando tecnologías como Java, React y Spring Boot.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#00C853]"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`,
+    title: "Apps Móviles",
+    text: "Desarrollamos apps nativas y multiplataforma para Android y iOS, intuitivas, seguras y pensadas para escalar.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#00C853]"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+    title: "SEO y Marketing Digital",
+    text: "Mejoramos tu presencia online, diseño orientado a conversión y posicionamiento en buscadores.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#00C853]"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`,
+    title: "Infraestructura en la Nube",
+    text: "Implementamos soluciones escalables en AWS, Oracle Cloud y Azure. Migraciones, backups, y despliegue continuo.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#00C853]"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
+    title: "Sistemas de Inventario y Logística",
+    text: "Creamos plataformas como Inventario360 para controlar activos, herramientas, stock y trazabilidad de manera visual y eficiente.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#00C853]"><path d="M3 21h18"></path><path d="M5 21V7l8-4 8 4v14"></path><path d="M17 21v-8.68A2 2 0 0 0 15 11h-2a2 2 0 0 0-2 1.32V21"></path></svg>`,
+    title: "Sistemas Robustos y Escalables",
+    text: "Diseñamos arquitecturas que crecen contigo. Empieza simple y agrega módulos según las necesidades de tu empresa.",
+  },
+];
+---
+
+<Layout title="Servicios | Lógica">
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-[#1A2A44] mb-4">
+          Nuestros Servicios
+        </h2>
+        <div class="h-1 w-20 bg-[#00C853] mx-auto rounded-full"></div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-center"
+      >
+        {
+          services.map((service) => (
+            <div class="group p-6 rounded-2xl transition-all duration-300 hover:bg-gray-50">
+              <div
+                class="mb-6 flex justify-center transform group-hover:scale-110 transition-transform duration-300"
+                set:html={service.icon}
+              />
+              <h5 class="text-xl font-bold text-[#1A2A44] mb-4">
+                {service.title}
+              </h5>
+              <p class="text-gray-600 leading-relaxed max-w-sm mx-auto">
+                {service.text}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ArmaTuWeb client:load />
+</Layout>

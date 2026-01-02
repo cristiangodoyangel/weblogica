@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+// Import placeholder images since originals are missing
+// For production, you should add the real images to src/assets
+const dev1 =
+  "https://ui-avatars.com/api/?name=Cristian+Godoy&background=0D8ABC&color=fff&size=200";
+const dev2 =
+  "https://ui-avatars.com/api/?name=Victor+Alcayaga&background=0D8ABC&color=fff&size=200";
+
+const history = [
+  {
+    year: "2021",
+    content:
+      "Iniciamos desarrollando sitios web en PHP y MySQL para pequeñas empresas y e-commerce.",
+  },
+  {
+    year: "2023",
+    content:
+      "Adoptamos tecnologías modernas como .NET, Java y React. Creamos software escalable y multiplataforma.",
+  },
+  {
+    year: "2024",
+    content:
+      "Completamos formación en Backend Java y creamos Inventario360 e incorporamos inteligencia artificial en soluciones educativas.",
+  },
+  {
+    year: "2025",
+    content:
+      "Fundamos Lógica como marca tecnológica para acelerar la transformación digital en empresas chilenas.",
+  },
+];
+
+const philosophy = [
+  {
+    title: "Misión",
+    content:
+      "Impulsar la transformación digital con soluciones eficientes, seguras y personalizadas.",
+  },
+  {
+    title: "Visión",
+    content:
+      "Ser referentes en Chile y Latinoamérica en inteligencia artificial y desarrollo de software.",
+  },
+  {
+    title: "Valores",
+    content:
+      "Innovación, compromiso, excelencia, ética, colaboración y pasión por la tecnología.",
+  },
+];
+
+const team = [
+  {
+    img: dev1,
+    name: "Cristian Andrés Godoy",
+    role: "Full Stack Developer",
+    skills:
+      "Experto en Python.NET, Java, React, SQL Server, AWS, automatización y arquitectura de software.",
+  },
+  {
+    img: dev2,
+    name: "Victor Alcayaga",
+    role: "Desarrollador Backend",
+    skills: "Especialista en C#, Flutter, React, MySQL y MongoDB.",
+  },
+];
+---
+
+<Layout title="Quiénes Somos | Lógica">
+  {/* Header Section */}
+  <section class="py-20 bg-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-[#00C853] mb-8">
+        Quiénes Somos
+      </h1>
+      <div
+        class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed"
+      >
+        <p>
+          En <strong>Lógica</strong>, creemos que la tecnología debe estar al
+          servicio de las personas. Somos una <strong
+            >empresa de desarrollo de software en Chile</strong
+          > que ofrece soluciones digitales modernas, eficientes y centradas en las
+          personas.
+        </p>
+        <p>
+          Nuestro equipo nació en el norte de Chile y hoy colaboramos con
+          empresas de distintas regiones, acompañándolas en su <strong
+            >transformación digital</strong
+          > mediante <strong>automatización de procesos</strong>, <strong
+            >desarrollo de apps móviles</strong
+          > y <strong>servicios en la nube</strong>.
+        </p>
+        <p>
+          Nos impulsa la <strong>innovación con propósito</strong>, la <strong
+            >excelencia técnica</strong
+          > y un profundo <strong>compromiso con cada cliente</strong>, ayudando
+          a sus negocios a crecer con tecnología útil y sostenible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Historia Section */}
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#1A2A44] mb-12">
+        Nuestra Historia
+      </h2>
+      <div class="max-w-4xl mx-auto space-y-8">
+        {
+          history.map((item) => (
+            <div class="bg-white p-8 rounded-xl shadow-sm border-l-4 border-[#00C853] hover:shadow-md transition-shadow">
+              <h3 class="text-2xl font-bold text-[#00C853] mb-3">
+                {item.year}
+              </h3>
+              <p class="text-gray-600 text-lg">{item.content}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Filosofía Section */}
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#1A2A44] mb-12">
+        Nuestra Filosofía
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          philosophy.map((item) => (
+            <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col text-center">
+              <h3 class="text-xl font-bold text-[#00C853] mb-4">
+                {item.title}
+              </h3>
+              <p class="text-gray-600">{item.content}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Equipo Section */}
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#1A2A44] mb-12">
+        Nuestro Equipo
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {
+          team.map((member) => (
+            <div class="bg-white overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="h-64 overflow-hidden bg-gray-200">
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  class="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div class="p-8 text-center">
+                <h3 class="text-xl font-bold text-[#00C853] mb-1">
+                  {member.name}
+                </h3>
+                <p class="text-[#1A2A44] font-medium mb-4">{member.role}</p>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  {member.skills}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

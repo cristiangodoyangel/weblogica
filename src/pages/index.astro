@@ -1,9 +1,324 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+// Placeholders for images based on the design
+const heroBanner =
+  "https://placehold.co/1200x400/1A2A44/FFFFFF?text=Hero+Banner+Software+Development";
+const featureImage =
+  "https://placehold.co/600x400/00C853/FFFFFF?text=Reserva+de+Horas";
+const whyChooseBanner =
+  "https://placehold.co/1200x300/f3f4f6/1A2A44?text=Por+que+elegir+Logica";
+
+// Client Logos
+const clients = [
+  {
+    name: "Client 1",
+    logo: "https://placehold.co/150x60/e2e8f0/64748b?text=Cliente+1",
+  },
+  {
+    name: "Client 2",
+    logo: "https://placehold.co/150x60/e2e8f0/64748b?text=Cliente+2",
+  },
+  {
+    name: "Client 3",
+    logo: "https://placehold.co/150x60/e2e8f0/64748b?text=Cliente+3",
+  },
+];
+
+const projects = [
+  {
+    title: "ControlPRO",
+    desc: "Sistema integral de control de bodega y activos de empresa.",
+    image: "https://placehold.co/400x250/1A2A44/FFFFFF?text=ControlPRO",
+  },
+  {
+    title: "Sistema de reservas de horas",
+    desc: "Permite agendar citas, gestionar calendario e integrarlo con WhatsApp.",
+    image: "https://placehold.co/400x250/00C853/FFFFFF?text=Sistema+Reservas",
+  },
+  {
+    title: "Sistema de Cotización en Tiempo real",
+    desc: "Aplicación web para calcular costos en tiempo real de productos y servicios.",
+    image: "https://placehold.co/400x250/1A2A44/FFFFFF?text=Cotizador",
+  },
+  {
+    title: "Página web para MG Gráfica",
+    desc: "Página web para empresa MG Gráfica, empresa que se dedica a la impresión.",
+    image: "https://placehold.co/400x250/000000/FFFFFF?text=MG+Grafica",
+  },
+  {
+    title: "Página web para VemecDO",
+    desc: "Página web para empresa VemecDO, empresa que ofrece equipamiento para la minería.",
+    image: "https://placehold.co/400x250/FFA500/FFFFFF?text=VemecDO",
+  },
+  {
+    title: "Página web para PM&T Integra",
+    desc: "Página web para empresa PM&T Integra, empresa de consultoría en ingeniería.",
+    image: "https://placehold.co/400x250/808080/FFFFFF?text=PMT+Integra",
+  },
+];
+
+const technologies = ["python", "java", "react", "docker", "github", "spring"];
+// Ideally we would map these to actual icons
 ---
 
-<Layout title="Welcome to Astro">
-  <main>
-    <h1>Astro</h1>
-  </main>
+<Layout title="Inicio | Lógica - Desarrollo de Software">
+  {/* Hero Section */}
+  <section class="bg-[#1A2A44] text-white pt-20 pb-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Desarrollo Web, Software y Hosting
+      </h1>
+      <p class="text-gray-300 max-w-2xl mx-auto mb-12 text-lg">
+        En Lógica desarrollamos soluciones de software a medida, apps móviles y
+        transformamos el cambio. Combinamos innovación, experiencia y tecnología
+        para ayudar a crecer tu negocio.
+      </p>
+
+      <div
+        class="relative w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl skew-y-1"
+      >
+        <img
+          src={heroBanner}
+          alt="Desarrollo de Software"
+          class="w-full h-auto"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#1A2A44] to-transparent opacity-60"
+        >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Services Summary */}
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#1A2A44] mb-16">
+        Nuestros Servicios
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          [
+            {
+              icon: "settings",
+              title: "Software a Medida",
+              text: "Soluciones únicas que resuelven las necesidades de tu empresa.",
+            },
+            {
+              icon: "smartphone",
+              title: "Apps Móviles",
+              text: "Aplicaciones nativas intuitivas y multiplataforma.",
+            },
+            {
+              icon: "code",
+              title: "Desarrollo Web",
+              text: "Desarrollos web modernos y optimizados para el crecimiento.",
+            },
+            {
+              icon: "server",
+              title: "Hosting",
+              text: "Alojamiento web seguro, rápido y escalable para tu proyecto digital.",
+            },
+          ].map((item) => (
+            <div class="text-center p-6 hover:-translate-y-2 transition-transform duration-300">
+              <div class="w-16 h-16 mx-auto mb-4 text-[#00C853] bg-green-50 rounded-full flex items-center justify-center">
+                {/* Icon Placeholder */}
+                <span class="text-2xl font-bold">&lt;/&gt;</span>
+              </div>
+              <h3 class="text-xl font-bold text-[#1A2A44] mb-3">
+                {item.title}
+              </h3>
+              <p class="text-gray-600 text-sm">{item.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Feature Highlight */}
+  <section class="py-20 bg-gray-50">
+    <div
+      class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12"
+    >
+      <div class="lg:w-1/2 space-y-6">
+        <p class="text-gray-700 leading-relaxed text-lg">
+          En Lógica, creamos ecosistemas digitales integrales diseñados para
+          impulsar el crecimiento y la transformación tecnológica de tu empresa.
+          Creemos que el software a medida debe optimizar procesos, reducir
+          costos y entregar valor real a tu negocio.
+        </p>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          Creamos aplicaciones visuales, notificaciones masivas, fáciles y
+          diseñadas para ofrecer experiencias de usuario fluidas, intuitivas y
+          seguras.
+        </p>
+      </div>
+      <div class="lg:w-1/2">
+        <img
+          src={featureImage}
+          alt="Feature Dashboard"
+          class="rounded-xl shadow-lg w-full transform rotate-2 hover:rotate-0 transition-transform duration-500"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* Why Choose Us */}
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#1A2A44] mb-12">
+        ¿Por qué elegir Lógica?
+      </h2>
+
+      <div class="mb-12 rounded-2xl overflow-hidden shadow-lg">
+        <img
+          src={whyChooseBanner}
+          alt="Por qué elegirnos"
+          class="w-full object-cover"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {
+          [
+            {
+              title: "Experiencia",
+              text: "Más de 5 años desarrollando soluciones innovadoras.",
+            },
+            {
+              title: "Seguridad",
+              text: "Priorizamos la protección y tranquilidad de tus datos y procesos.",
+            },
+            {
+              title: "Escalabilidad",
+              text: "Soluciones flexibles que crecen al ritmo de tu futuro.",
+            },
+          ].map((item) => (
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-[#1A2A44] mb-2">
+                {item.title}
+              </h3>
+              <p class="text-gray-600">{item.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Trusted By */}
+  <section class="py-16 bg-gray-50 border-y border-gray-200">
+    <div class="container mx-auto px-4">
+      <h3
+        class="text-2xl font-bold text-center text-[#1A2A44] mb-10 opacity-80"
+      >
+        Empresas que confían en Nosotros
+      </h3>
+      <div
+        class="flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+      >
+        {
+          clients.map((client) => (
+            <img
+              src={client.logo}
+              alt={client.name}
+              class="h-12 w-auto object-contain mix-blend-multiply"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="py-24 bg-[#1A2A44] text-center text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-[#00C853] text-6xl font-bold mb-4">&lt;/&gt;</div>
+      <h2 class="text-4xl font-bold mb-6 tracking-tight">LOGICA</h2>
+      <p class="text-2xl font-light mb-8">¿Listo para dar el siguiente paso?</p>
+      <p class="text-gray-400 mb-10">Conversemo sobre cómo podemos ayudarte.</p>
+      <a
+        href="/contacto"
+        class="inline-block bg-[#00C853] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#00a844] transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,200,83,0.4)]"
+      >
+        Contáctanos Ahora
+      </a>
+    </div>
+  </section>
+
+  {/* Technologies */}
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h3 class="text-2xl font-bold text-[#1A2A44] mb-10">
+        Tecnologías y Formación Continua
+      </h3>
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <div class="lg:w-1/3 text-gray-600 leading-relaxed">
+          <p>
+            En Lógica usamos Python, Django, React, Java, Spring Boot, AWS y
+            Docker. Nos capacitamos constantemente para entregar soluciones
+            robustas, eficientes y escalables para nuestros clientes,
+            manteniéndonos a la vanguardia del desarrollo tecnológico.
+          </p>
+        </div>
+        <div class="lg:w-2/3 grid grid-cols-4 md:grid-cols-6 gap-8">
+          {
+            technologies.map((tech) => (
+              <div class="h-12 w-12 bg-gray-200 rounded-full mx-auto animate-pulse" /> // Placeholder for tech icons
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Projects */}
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#1A2A44] mb-16">
+        Nuestros Proyectos
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          projects.map((project) => (
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+              <div class="relative overflow-hidden h-48">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-[#1A2A44] mb-3">
+                  {project.title}
+                </h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {project.desc}
+                </p>
+                <a
+                  href="#"
+                  class="inline-block text-[#00C853] font-semibold text-sm hover:underline"
+                >
+                  Ver Proyecto &rarr;
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="text-center mt-12">
+        <a
+          href="/servicios"
+          class="text-[#00C853] text-sm font-semibold border-b-2 border-[#00C853] pb-1 hover:text-[#00a844]"
+          >Ver todos mis servicios</a
+        >
+      </div>
+    </div>
+  </section>
 </Layout>
